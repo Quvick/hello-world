@@ -8,12 +8,30 @@
 
 <body>
     <script>
-        var fifthLetter = function (name) {
-            if (name.length < 5) {
-                return;
+        // var fifthLetter = function (name) {
+        //     if (name.length < 5) {
+        //         return;
+        //     }
+        //     return alert("пятая буква вашего имени: " + name[4] + ".");
+        // };
+
+        var medalForScore = function (score) {
+            if (score < 1) {
+                return alert("Вы ваще играли?");
+            } 
+
+            if (score < 3) {
+                return alert("Бронза");
+            } 
+
+            if (score < 7) {
+                return alert("Серебряная");
             }
-            return "пятая буква вашего имени: " + name[4] + ".";
+
+            return alert("Золото")
         };
+
+Ended in page 140
 
     </script>
 
