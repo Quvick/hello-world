@@ -7,34 +7,15 @@
     </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-    
-    <h1 id="main-heading">Привет, мир!</h1>
-    <p>новый элемент</p>
     <script>
-    for (i = 0; i < 5; i++){
-        $("h1").hide(1000).show(1000);
-        $("h1").slideUp(1000);
-        $("h1").slideDown(1000);
-        // $("h1").fadeOut(1000).fadeIn(1000);
-        // $("Body").append("<p id="2sec">2000 ms animation</p>");
-        // $("#2sec").fadeOut(2000).fadeIn(2000);
-        }
+        var fifthLetter = function (name) {
+            if (name.length < 5) {
+                return;
+            }
+            return "пятая буква вашего имени: " + name[4] + ".";
+        };
+
     </script>
-
-    <!-- <script>
-        var newHeadingText = prompt("Введите новый заголовок:");
-        $("#main-heading").text(newHeadingText);
-    </script>
-
-    <script>
-        for (var i = 0; i < 5; i++) {
-            var hobby = prompt("Назови одно из своих хобби!");
-            $("body").append("<p>" + hobby + "</p>");
-        }
-    </script> -->
-
 
 </body>
 
