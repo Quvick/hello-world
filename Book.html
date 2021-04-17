@@ -30,7 +30,12 @@
 
             return alert("Золото")
         };
+    </script>
 
+    <script>
+        // это с задания на странице 140
+        // Одна функция складывает другая умножает.
+        // Функции можно засовывать в функции, к примеру вот так add(multiply(16, 16), 10) = 16*16+10 
         var add = function(number1, number2) {
             return number1 + number2;
         }
@@ -38,10 +43,36 @@
         var multiply = function(number1, number2) {
             return number1 * number2;
         }
-        
-Ended in page 140
-
     </script>
+
+    <script>
+        var areArraysSame = function (massive1, massive2) {
+            for (i = 0; i < 10; i++) {
+                if (massive1.lenght != massive2.lenght) {
+                    return "false";
+                }
+                if (massive1[0] != massive2[0]) {
+                    return "false";
+                }
+                if (massive1[1] != massive2[1]) {
+                    return "false";
+                }
+                if (massive1[2] != massive2[2]) {
+                    return "false";
+                }
+                if (massive1[3] != massive2[3]) {
+                    return "false";
+                }
+                if (massive1[4] != massive2[4]) {
+                    return "false";
+                }
+                return "true";
+            }
+        };
+    
+    </script>
+
+<h1>Ended in page 140</h1>
 
 </body>
 
