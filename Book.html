@@ -72,6 +72,33 @@
     
     </script>
 
+<script>
+  // Создайте здесь свои функции
+
+  // word: загаданное слово
+  var word = pickWord();
+  // answerArray: итоговый массив
+  var answerArray = setupAnswerArray(word);
+  // remainingLetters: сколько букв осталось угадать
+  var remainingLetters = word.lenght;
+  while (remainingLetters > 0) {
+      showPlayerProgress(answerArray);
+      // guess: ответ игрока
+      var guess = getGuess();
+      if (guess === null) {
+          break;
+      } else if (guess.lenght !== 1) {
+          alert("Пожалуйста, введите одиночную букву.");
+      } else {
+          //correctGuesses: количество открыты букв
+          var correctGuesses = updateGameState(guess, word, answerArray);
+          remainingLetters -= correctGuesses;
+      }
+  }
+showAnswerAndCongratulatePlayer(answerArray);
+
+</script>
+
 <h1>Ended in page 140</h1>
 
 </body>

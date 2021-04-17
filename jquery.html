@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Изучаем DOM</title>
+
+</head>
+
+<body>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+<h1 id="main-heading">Мигающий заголовок</h1>
+    <script>
+     for (var i = 0; i < 5; i++) {
+        $("h1").fadeTo(1000, 0.2);
+        $("h1").fadeOut(500);
+        $("h1").fadeIn(500);
+     }
+    </script>
+
+</body>
+
+</html>
