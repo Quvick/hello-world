@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Найди клад!</title>
+</head>
+
+<body>
+
+<h1 id="heading">Ищем клад</h1>
+
+<img id="map" width=724 height=407 src="https://cdn.u.media/max/w724/v2/foxima/RVJbmlhMg">
+
+<h2>Подсказка: <span id="distance">Нажмите на картинку, что бы найти клад</span></h2> 
+<h3>Попыток осталось: <span id="limit">20</span></h3>
+
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+    <script>   
+    // Получить случайно число от 0 до size-1
+    var getRandomNumber = function (size) {
+        return Math.floor(Math.random() * size);
+    };
+
+    // Вычислить расстояние от клика (event) до клада (target)
+    var getDistance = function (event, target) {
+        var diffX = event.offsetX - target.x;
+        var diffY = event.offsetY - target.y;
+        return Math.sqrt((diffX * diffX) + (diffY * diffY));
+    };
+
+    // Получить для расстояния строку подсказки
+    var getDistanceHint = function (distance) {
+        if (distance < 10) {
+            return "Обожжешься!";
+        } else if (distance < 20) {
+            return "Очень горячо";
+        } else if (distance < 40) {
+            return "Горячо";
+        } else if (distance < 60) {
+            return "Тепло"; 
+        } else if (distance < 160) {
+            return "Холодно";
+        } else if (distance < 320) {
+            return "Очень холодно";
+        } else {
+            return "Замерзнешь!";
+        }
+    };
+
+    // Создаем переменные
+    var width = 724;
+    var height = 407;
+    var clicks = 0;
+    var limit = 20;
+
+    // Случайная позиция клада
+    var target = {
+        x: getRandomNumber(width),
+        y: getRandomNumber(height)
+    };
+
+    //Добавляем элементу img Обработчик клика
+    $("#map").click(function (event) {
+    clicks++;
+        
+    // Получаем расстояние от места клика до клада
+    var distance = getDistance(event, target);
+
+    // Преобразуем расстояние в подсказу
+    var distanceHint = getDistanceHint(distance);
+
+    // Записывем в элемент #distance новую подсказу
+    $("#distance").text(distanceHint);
+
+    // Записывем в элемент #counter кол-во оставшихся кликов
+    $("#limit").text(limit-clicks);
+
+    
+
+    // Елси клик был достаточно близко, поздравляем с победой
+    if (distance < 8) {
+        alert("Клад найден! сделано кликов: " + clicks);
+        
+    // или если закончились клики, сообщаем о том что они кончились
+    } else if (clicks > limit) {
+        alert("конец. Клики закончились")
+    }
+
+});
+    </script>
+</body>
+</html>
